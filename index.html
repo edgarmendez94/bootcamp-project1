@@ -50,7 +50,7 @@
             gapi.auth2.init({ client_id: "1075128440110-maq126f8513lh0qlp50416e2o6pco0n7.apps.googleusercontent.com" });
         });
     </script>
-    <button onclick="authenticate()">authorize and load</button>
+    <button onclick="authenticate().then(loadClient)">authorize and load</button>
     <button onclick="execute()">execute</button>
 
 </body>
