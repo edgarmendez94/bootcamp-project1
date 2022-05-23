@@ -1,14 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Cocktail Menu</title>
 
     <link rel="stylesheet" href="assets/css/style.css" />
-  </head>
+</head>
 
-  <body>
+<body>
     <script src="assets/js/script.js"></script>
-  </body>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script>
+        /**
+         * Sample JavaScript code for youtube.search.list
+         * See instructions for running APIs Explorer code samples locally:
+         * https://developers.google.com/explorer-help/code-samples#javascript
+         */
+
+        function authenticate() {
+            return gapi.auth2.getAuthInstance()
+                .signIn({ scope: "https://www.googleapis.com/auth/youtube.force-ssl" })
+                .then(function () { console.log("Sign-in successful"); },
+                    function (err) { console.error("Error signing in", err); });
+        }
+        function loadClient() {
+            gapi.client.setApiKey("AIzaSyCdDdBtp_6yVMIy_8Wx1XJHcQ4FZRPJ3rs");
+            return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
+                .then(function () { console.log("GAPI client loaded for API"); },
+                    function (err) { console.error("Error loading GAPI client for API", err); });
+        }
+        // Make sure the client is loaded and sign-in is complete before calling this method.
+        function execute() {
+            return gapi.client.youtube.search.list({
+                "part": [
+                    "snippet"
+                ],
+                "maxResults": 25,
+                "q": "margarita"
+            })
+                .then(function (response) {
+                    // Handle the results here (response.result has the parsed body).
+                    console.log("Response", response);
+                },
+                    function (err) { console.error("Execute error", err); });
+        }
+        gapi.load("client:auth2", function () {
+            gapi.auth2.init({ client_id: "1075128440110-maq126f8513lh0qlp50416e2o6pco0n7.apps.googleusercontent.com" });
+        });
+    </script>
+    <button onclick="authenticate()">authorize and load</button>
+    <button onclick="execute()">execute</button>
+
+</body>
+
 </html>
