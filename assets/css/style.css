@@ -7,3 +7,18 @@
   font-size: 40px;
 }
 
+
+.tile.is-parent {
+  padding: 15px;
+}
+.tile {
+  justify-content: center;
+}
+.button.is-primary {
+  padding: 10px;
+}
+.button {
+  position: relative;
+  left: 42%;
+}
+
