@@ -2,7 +2,7 @@
     --gutter: 20px;
   }
   
-  .scrolling-card{
+  .drink{
     padding: var(--gutter) 0;
     display: grid;
     grid-gap: var(--gutter) 0;
@@ -10,15 +10,15 @@
     align-content: start;
   }
   
-  .scrolling-card > * {
+  .drink > * {
     grid-column: 2 / -2;
   }
   
-  .scrolling-card > .full {
+  .drink > .full {
     grid-column: 1 / -1;
   }
   
-  .drink{
+  .drink-card{
     display: grid;
     grid-gap: calc(var(--gutter) / 2);
     grid-template-columns: 10px repeat(var(--total), calc(50% - var(--gutter) * 2)) 10px;
@@ -30,8 +30,8 @@
     margin-bottom: calc(-.25 * var(--gutter));
   }
   
-  .drink:before,
-  .drink:after {
+  .drink-card:before,
+  .drink-.drink-card {
     content: '';
   }
 
@@ -44,7 +44,7 @@ body {
 body {
   display: grid;
   place-items: center;
-  background: #456173;
+  background: #342b2b;
 }
 
 ul {
@@ -53,20 +53,19 @@ ul {
 }
 
 h1,
-h2,
-h3 {
+h2 {
   margin: 0;
 }
 
-.app {
+.scrolling-card {
   width: 375px;
-  height: 667px;
+  height: 500px;
   background: #DBD0BC;
-  overflow-y: scroll;
+  overflow-x: scroll;
+  border-radius: 25px;
 }
 
-.drink-card > li,
-.item {
+.drink-card > li {
   scroll-snap-align: center;
   padding: calc(var(--gutter) / 2 * 1.5);
   display: flex;
@@ -75,4 +74,8 @@ h3 {
   align-items: center;
   background: #fff;
   border-radius: 8px;
+}
+
+.card-content {
+    text-align: center;
 }
