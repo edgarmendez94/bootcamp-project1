@@ -1,3 +1,23 @@
+
+function getCocktailApi() {
+    // fetch request 
+    var cocktailSearch = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita';
+
+    fetch(cocktailSearch, {
+        mode: 'cors',
+
+    })
+        .then(function (response) {
+            console.log(response);
+            return response.json();
+            
+        })
+        .then(function(data) {
+            console.log(data);
+        }) 
+};
+
+
 function authenticate() {
     return gapi.auth2.getAuthInstance()
         .signIn({ scope: "https://www.googleapis.com/auth/youtube.force-ssl" })
@@ -30,5 +50,5 @@ gapi.load("client:auth2", function () {
 });
 
 // INIT
-authenticate().then(loadClient);
-execute();
+
+getCocktailApi();
