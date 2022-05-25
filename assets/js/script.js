@@ -1,8 +1,25 @@
 //Dependencies
 var navHeight = document.getElementsByClassName(".navbar")
-var randomCocktail = document.getElementById("#randomCocktail")
+var randomCocktailNav = document.getElementById("#randomCocktail")
 
 
+// Helper Functions
+
+// Get random cocktail and can be used on any page through targeted event listeners
+function getRandomCocktail() {
+    var randomCocktail = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
+    
+    fetch(randomCocktail, {
+      mode: 'cors',  
+    })
+        .then(function (response) {
+            console.log(response);
+            return response.json();
+        })
+        .then(function(data) {
+            console.log(data);
+        }) 
+};
 
 function getCocktailApi() {
     // fetch request 
@@ -54,9 +71,14 @@ gapi.load("client:auth2", function () {
     gapi.auth2.init({ client_id: "1075128440110-maq126f8513lh0qlp50416e2o6pco0n7.apps.googleusercontent.com" });
 });
 
+// User Interactions
+
+
+
 // INIT
 
 getCocktailApi();
+getRandomCocktail();
 
 //Bulma Javascript for Hamburger menu
 document.addEventListener('DOMContentLoaded', () => {
