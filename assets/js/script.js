@@ -1,6 +1,6 @@
 //Dependencies
 var navHeight = document.getElementsByClassName(".navbar")
-
+var randomCocktail = document.getElementById("#randomCocktail")
 
 
 
