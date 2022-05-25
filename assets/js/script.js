@@ -1,25 +1,35 @@
 //Dependencies
-var navHeight = document.getElementsByClassName(".navbar")
-var randomCocktailNav = document.getElementById("#randomCocktail")
-
+fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
+    .then((response) => response.json())
+    .then((data) => getRandomCocktail(data));
 
 // Helper Functions
+function getRandomCocktail(data) {
+    var drinksDiv = document.getElementById("drinks-div");
 
-// Get random cocktail and can be used on any page through targeted event listeners
-function getRandomCocktail() {
-    var randomCocktail = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
-    
-    fetch(randomCocktail, {
-      mode: 'cors',  
-    })
-        .then(function (response) {
-            console.log(response);
-            return response.json();
-        })
-        .then(function(data) {
-            console.log(data);
-        }) 
-};
+    for (let drink of data.drinks) {
+        var drinkElement = document.createElement("h2");
+        drinkElement.textContent = drink.strDrink;
+        drinksDiv.appendChild(drinkElement);
+
+        var ingredientsUL = document.createElement("ul");
+        for (var i = 1; i <= 15; i++){
+            var line = "";
+            var ingredientName = drink[`strIngredient${i}`];
+            // console log of ingredients working
+            console.log(ingredientName);
+            if (drink[`strIngredient${i}`] !== null) {
+                line += drink[`strIngredient${i}`];
+                var lineElement = document.createElement("li");
+                line += " " + drink[`strMeasure${i}`];
+                lineElement.textContent = line;
+                ingredientsUL.appendChild(lineElement);
+            }
+            drinksDiv.appendChild(ingredientsUL);
+        }
+    }
+} 
+
 
 function getCocktailApi() {
     // fetch request 
@@ -32,11 +42,11 @@ function getCocktailApi() {
         .then(function (response) {
             console.log(response);
             return response.json();
-            
+
         })
-        .then(function(data) {
+        .then(function (data) {
             console.log(data);
-        }) 
+        })
 };
 
 
@@ -85,20 +95,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Get all "navbar-burger" elements
     const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-  
+
     // Add a click event on each of them
-    $navbarBurgers.forEach( el => {
-      el.addEventListener('click', () => {
-  
-        // Get the target from the "data-target" attribute
-        const target = el.dataset.target;
-        const $target = document.getElementById(target);
-  
-        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-        el.classList.toggle('is-active');
-        $target.classList.toggle('is-active');
-  
-      });
+    $navbarBurgers.forEach(el => {
+        el.addEventListener('click', () => {
+
+            // Get the target from the "data-target" attribute
+            const target = el.dataset.target;
+            const $target = document.getElementById(target);
+
+            // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+            el.classList.toggle('is-active');
+            $target.classList.toggle('is-active');
+
+        });
     });
-  
-  });
+
+});
