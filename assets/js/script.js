@@ -1,4 +1,6 @@
 //Dependencies
+
+
 fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
     .then((response) => response.json())
     .then((data) => getRandomCocktail(data));
@@ -6,11 +8,17 @@ fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
 // Helper Functions
 function getRandomCocktail(data) {
     var drinksDiv = document.getElementById("drinks-div");
+    var imageDiv = document.getElementById("image-div");
 
     for (let drink of data.drinks) {
         var drinkElement = document.createElement("h2");
+        var drinkImage = document.createElement("img");
+
+        drinkImage.setAttribute('src', drink.strImageSource);
+
         drinkElement.textContent = drink.strDrink;
         drinksDiv.appendChild(drinkElement);
+        imageDiv.appendChild(drinkImage);
 
         var ingredientsUL = document.createElement("ul");
         for (var i = 1; i <= 15; i++){
@@ -88,7 +96,7 @@ gapi.load("client:auth2", function () {
 // INIT
 
 getCocktailApi();
-getRandomCocktail();
+
 
 //Bulma Javascript for Hamburger menu
 document.addEventListener('DOMContentLoaded', () => {
