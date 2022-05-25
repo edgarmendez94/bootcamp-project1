@@ -1,11 +1,16 @@
+//Dependencies
+var navHeight = document.getElementsByClassName(".navbar")
+
+
+
 
 function getCocktailApi() {
     // fetch request 
     var cocktailSearch = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita';
 
     fetch(cocktailSearch, {
+        // mode cors allows cross origin requests
         mode: 'cors',
-
     })
         .then(function (response) {
             console.log(response);
@@ -52,3 +57,26 @@ gapi.load("client:auth2", function () {
 // INIT
 
 getCocktailApi();
+
+//Bulma Javascript for Hamburger menu
+document.addEventListener('DOMContentLoaded', () => {
+
+    // Get all "navbar-burger" elements
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+  
+    // Add a click event on each of them
+    $navbarBurgers.forEach( el => {
+      el.addEventListener('click', () => {
+  
+        // Get the target from the "data-target" attribute
+        const target = el.dataset.target;
+        const $target = document.getElementById(target);
+  
+        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+        el.classList.toggle('is-active');
+        $target.classList.toggle('is-active');
+  
+      });
+    });
+  
+  });
