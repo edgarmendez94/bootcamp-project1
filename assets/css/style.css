@@ -6,3 +6,30 @@
   text-align: center;
   font-size: 40px;
 }
+
+@media screen and (max-width: 700px) {
+  .navbar {
+    background: green;
+  }
+}
+
+@media screen and (min-width: 701px) {
+  .navbar {
+    background: orange;
+  }
+}
+
+
+.tile.is-parent {
+  padding: 15px;
+}
+.tile {
+  justify-content: center;
+}
+.button.is-primary {
+  padding: 10px;
+}
+.button {
+  position: relative;
+  left: 42%;
+}

@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+  
 
 </head>
 
 <body>
 
-    <section class="hero is-info">
+    <section class="hero is-info ">
         <div class="hero-body">
         
            <h1>Cocktail Menu</h1> 
@@ -22,7 +24,12 @@
       </section>
 
       <section>
+        <div class="tile is-ancestor is-">
+          <!-- All other tile elements -->
+        </div>
+       <h1 class="title is-1 is-centered has-text-weight-light has-text-warning">Drink Name</h1>
       <div class="tile is-ancestor">
+        
        <div class="tile is-parent is-4">
         <article class="tile is-child notification is-info">
           <p class="title">Cocktail image or video</p>
@@ -34,28 +41,37 @@
         <div class="tile is-parent is-vertical is-4">
             <article class="tile is-child notification is-success">
             <div class="content">
-                <p class="title"> Cocktail name</p>
+                <p class="title"> Ingridients</p>
                 <div class="content">
-                  <p>some sort of ingidients and what not goes here , some sort of ingidients and what not goes here , some sort of ingidients and what not goes here , some sort of ingidients and what not goes here , some sort of ingidients and what not goes here , some sort of ingidients and what not goes here , some sort of ingidients and what not goes here , some sort of ingidients and what not goes here ,   </p>  
+                  <li class="has-text-centered">Ingridient 1</li> 
+                  <li class="has-text-centered">Ingridient 1</li> 
+                  <li class="has-text-centered">Ingridient 1</li> 
+                  <li class="has-text-centered">Ingridient 1</li> 
+                  <li class="has-text-centered">Ingridient 1</li> 
+                  <li class="has-text-centered">Ingridient 1</li> 
+                  <li class="has-text-centered">Ingridient 1</li> 
 
                 </div>
 
             </div>
         </article>
         </div>
+        
 
 
       
       </div>
     </section>
     
-    <footer>
-    <input class="input is-rounded" type="text" placeholder="Search for a drink here">
+    <footer class="is-ancestor">
+      <div class="column is-8 is-offset-2">
+        <input id="seach-drink" class="input is-rounded is-focused" type="text" placeholder="Search for a drink here">
+      </div>
     </footer>
 
 
 
-
+    
 
 
       <script src="https://apis.google.com/js/api.js"></script>
