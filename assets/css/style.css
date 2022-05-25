@@ -4,7 +4,7 @@
 }
 .subtitle {
   text-align: center;
-  font-size: 40px;
+  font-size: 20px;
 }
 
 @media screen and (max-width: 700px) {
@@ -27,6 +27,9 @@
 }
 .button.is-primary {
   padding: 10px;
+}
+.hero-body {
+  line-height: 10%;
 }
 /*.button {
   position: relative;
