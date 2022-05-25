@@ -12,8 +12,8 @@
 <body>
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-          <a class="navbar-item" href="https://bulma.io">
-            <img src="./assets/images/icons8-cocktail-shaker-50.png">
+          <a class="navbar-item" href="./index.html">
+            <img src="./assets/images/icons8-cocktail-shaker-50.png" style: height="100px">
           </a>
       
           <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -25,10 +25,6 @@
       
         <div id="navbarBasicExample" class="navbar-menu">
           <div class="navbar-start">
-            <a class="navbar-item">
-              Home
-            </a>
-      
 
       
             <div class="navbar-item has-dropdown is-hoverable">
@@ -58,10 +54,10 @@
             <div class="navbar-item">
               <div class="buttons">
                 <a class="button is-primary" onclick="authenticate().then(loadClient)">
-                  <strong>Sign up</strong>
+                  <strong>Authenticate</strong>
                 </a>
                 <a class="button is-light" onclick="execute()">
-                  Log in
+                  Execute
                 </a>
               </div>
             </div>
@@ -69,54 +65,37 @@
         </div>
       </nav>
 
-    <!-- <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item">
-                <img src="./assets/images/icons8-cocktail-shaker-50.png" href="./index.html">
-            </a>
-
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
-                data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-
-            <div id="navbarBasicExample" class="navbar-menu">
-                <div class="navbar-start">
-
-
-                    <div class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link">
-                            More
-                        </a>
-
-                        <div class="navbar-dropdown">
-                            <a class="navbar-item">
-                                Random Drinks
-                            </a>
-                            <a class="navbar-item">
-                                Favorited Drinks
-                            </a>
-
-                        </div>
-                    </div>
+      <section>
+        <div class="tile is-ancestor">
+          <div class="tile is-parent is-4">
+            <article class="tile is-child notification is-info">
+              <p class="title">Cocktail image or video</p>
+              <figure class="image is-4by3">
+                <img src="https://bulma.io/images/placeholders/640x480.png">
+              </figure>
+            </article>
+          </div>
+          <div class="tile is-parent is-vertical is-4">
+            <article class="tile is-child notification is-success">
+              <div class="content">
+                <p class="title"> Cocktail name</p>
+                <div class="content">
+                  <p>some sort of ingidients and what not goes here , some sort of ingidients and what not goes here , some
+                    sort of ingidients and what not goes here , some sort of ingidients and what not goes here , some sort
+                    of ingidients and what not goes here , some sort of ingidients and what not goes here , some sort of
+                    ingidients and what not goes here , some sort of ingidients and what not goes here , </p>
+    
                 </div>
+    
+              </div>
+            </article>
+          </div>
+    
+    
+    
+        </div>
+      </section>
 
-                <div class="navbar-end">
-                    <div class="navbar-item">
-                        <div class="buttons">
-                            <a class="button is-primary" onclick="authenticate().then(loadClient)">
-                                <strong>Authorize</strong>
-                            </a>
-                            <a class="button is-light" onclick="execute()">
-                                <strong>Execute</strong>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </nav> -->
 
 
     <script src="https://apis.google.com/js/api.js"></script>
