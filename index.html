@@ -1,121 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cocktail Menu</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cocktail Menu</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
-  <link rel="stylesheet" href="./assets/css/style.css" />
-  <script src="https://kit.fontawesome.com/8cd90df22b.js" crossorigin="anonymous"></script>
-</head>
+  <body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="./index.html">
+          <img src="./assets/images/icons8-cocktail-shaker-50.png" style:
+          height="100px">
+        </a>
 
-<body>
-  <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="./index.html">
-        <img src="./assets/images/icons8-cocktail-shaker-50.png" style: height="100px">
-      </a>
-
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-
-    <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-start">
-
-
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-item" id="randomCocktail">
-            Random Cocktail
-          </a>
-          <a class="navbar-link">
-            More
-          </a>
-
-          <div class="navbar-dropdown">
-            <a class="navbar-item">
-              About
-            </a>
-            <a class="navbar-item">
-              Jobs
-            </a>
-            <a class="navbar-item">
-              Contact
-            </a>
-            <hr class="navbar-divider">
-            <a class="navbar-item">
-              Report an issue
-            </a>
-          </div>
-        </div>
+        <a
+          role="button"
+          class="navbar-burger"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbarBasicExample"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
       </div>
 
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="buttons">
-            <a class="button is-primary" onclick="authenticate().then(loadClient)">
-              <strong>Authenticate</strong>
-            </a>
-            <a class="button is-light" onclick="execute()">
-              Execute
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </nav>
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-item" id="randomCocktail"> Random Cocktail </a>
+            <a class="navbar-link"> More </a>
 
-  <section>
-    <div class="tile is-ancestor">
-      <div class="tile is-parent is-4">
-        <article class="tile is-child notification is-info">
-          <p class="title">Cocktail image or video</p>
-          <figure id="image-div" class="image is-4by3">
-            <!-- <img src="https://bulma.io/images/placeholders/640x480.png"> -->
-          </figure>
-        </article>
-      </div>
-      <div class="tile is-parent is-vertical is-4">
-        <article class="tile is-child notification is-success">
-          <div class="content">
-            <h2>Random Cocktail</h2>
-            <div id="drinks-div">
-
+            <div class="navbar-dropdown">
+              <a class="navbar-item" href="./main.html">
+                Cocktail of the Day
+              </a>
+              <a class="navbar-item" href="./top-5.html"> Top 5 Cocktails </a>
+              <a class="navbar-item"> Contact </a>
+              <hr class="navbar-divider" />
+              <a class="navbar-item"> Report an issue </a>
             </div>
-
           </div>
-        </article>
+        </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a
+                class="button is-primary"
+                onclick="authenticate().then(loadClient)"
+              >
+                <strong>Authenticate</strong>
+              </a>
+              <a class="button is-light" onclick="execute()"> Execute </a>
+            </div>
+          </div>
+        </div>
       </div>
+    </nav>
 
+    <section>
+      <div class="tile is-ancestor">
+        <div class="tile is-parent is-4">
+          <article class="tile is-child notification is-info">
+            <p class="title">Cocktail image or video</p>
+            <figure id="image-div" class="image is-4by3">
+              <!-- <img src="https://bulma.io/images/placeholders/640x480.png"> -->
+            </figure>
+          </article>
+        </div>
+        <div class="tile is-parent is-vertical is-4">
+          <article class="tile is-child notification is-success">
+            <div class="content">
+              <h2>Random Cocktail</h2>
+              <div id="drinks-div"></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-
-    </div>
-  </section>
-
-  <footer class="is-ancestor">
-    <div class="column is-8 is-offset-2">
-      <form action="./cocktail-result.html">
+    <footer class="is-ancestor">
+      <!-- for colums you can add an offset to move the colum as many spaces as you want from 1 - 12 -->
+      <div class="column is-8 is-offset-2">
+        <!-- this P allows the icon to be alligned to the left and within the search bar -->
         <p class="control has-icons-left">
-          <input id="seach-drink" class="input has-icon-left is-rounded is-focused" type="text"
-            placeholder="Search for a drink here">
-            
-            <span class="icon is-small is-left">
-              <i class="fa-solid fa-martini-glass"></i>
-            </span>
-          </p>
-          <input type="submit" style="display:none">
-      </form>
-    </div>
-  </footer>
+          <input
+            id="search"
+            class="input has-icon-left is-rounded is-focused"
+            type="text"
+            placeholder="Search for a drink here"
+          />
+          <span class="icon is-small is-left">
+            <!-- calls in icon from font awsome -->
+            <i class="fa-solid fa-martini-glass"></i>
+          </span>
+        </p>
+      </div>
+    </footer>
 
-
-
-  <script src="https://apis.google.com/js/api.js"></script>
-  <script src="assets/js/script.js" defer></script>
-</body>
-
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="assets/js/script.js" defer></script>
+  </body>
 </html>
