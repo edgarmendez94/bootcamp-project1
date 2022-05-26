@@ -18,7 +18,7 @@ function getRandomCocktail(data) {
             drinkImage.setAttribute('src', drink.strImageSource);
             drinkImage.src = drink.strImageSource;
             imageDiv.appendChild(drinkImage);
-        }
+        } else {}
 
         drinkElement.textContent = drink.strDrink;
         drinksDiv.appendChild(drinkElement);
