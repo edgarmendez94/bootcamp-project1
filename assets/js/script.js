@@ -15,6 +15,7 @@ function getRandomCocktail(data) {
         var drinkImage = document.createElement("img");
 
         drinkImage.setAttribute('src', drink.strImageSource);
+        drinkImage.src = drink.strImageSource;
 
         drinkElement.textContent = drink.strDrink;
         drinksDiv.appendChild(drinkElement);
