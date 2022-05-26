@@ -132,7 +132,7 @@ function getCocktailApi() {
 // });
 
 function googleFetch() {
-    var googleVid = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=" + inputField.value + "&type=video&key=AIzaSyCdDdBtp_6yVMIy_8Wx1XJHcQ4FZRPJ3rs"
+    var googleVid = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=" + inputField.value + "&type=video&key=AIzaSyCTGqFnZNElv_dPPcCH13dgc-tQAnu7kE0"
     fetch(googleVid)
         .then(
             function (response) {
