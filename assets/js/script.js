@@ -18,7 +18,11 @@ function getRandomCocktail(data) {
             drinkImage.setAttribute('src', drink.strImageSource);
             drinkImage.src = drink.strImageSource;
             imageDiv.appendChild(drinkImage);
-        } else {}
+        // } else {
+        //     drinkImage.src = 
+        // }
+            
+        
 
         drinkElement.textContent = drink.strDrink;
         drinksDiv.appendChild(drinkElement);
@@ -124,7 +128,8 @@ function getCocktailApi() {
 // });
 
 function googleFetch() {
-    fetch("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=martini&type=video&key=AIzaSyCdDdBtp_6yVMIy_8Wx1XJHcQ4FZRPJ3rs")
+    var googleVid = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=" + inputField.value + "&type=video&key=AIzaSyCdDdBtp_6yVMIy_8Wx1XJHcQ4FZRPJ3rs"
+    fetch(googleVid)
         .then(
             function (response) {
                 console.log(response.status)
@@ -168,4 +173,15 @@ document.addEventListener("DOMContentLoaded", () => {
             $target.classList.toggle("is-active");
         });
     });
+});
+
+const element = document.querySelector("#container");
+
+element.addEventListener('wheel', (event) => {
+  event.preventDefault();
+
+  element.scrollBy({
+    left: event.deltaY < 0 ? -30 : 30,
+    
+  });
 });
