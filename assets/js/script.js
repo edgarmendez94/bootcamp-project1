@@ -12,17 +12,21 @@ function getRandomCocktail(data) {
     var imageDiv = document.getElementById("image-div");
 
     for (let drink of data.drinks) {
-        var drinkElement = document.createElement("h2");
+        var drinkElement = document.createElement("h3");
+        
         if (drink.strImageSource !== null) {
             var drinkImage = document.createElement("img");
             drinkImage.setAttribute('src', drink.strImageSource);
             drinkImage.src = drink.strImageSource;
             imageDiv.appendChild(drinkImage);
-        // } else {
-        //     drinkImage.src = 
-        // }
-            
-        
+        } else {
+            var placeholderDrink = document.createElement("img");
+            placeholderDrink.setAttribute('src', 'assets/images/bartender-placeholder.jpeg');
+            imageDiv.appendChild(placeholderDrink);
+        }
+
+
+
 
         drinkElement.textContent = drink.strDrink;
         drinksDiv.appendChild(drinkElement);
@@ -143,7 +147,7 @@ function googleFetch() {
         });
 }
 
-googleFetch();
+// googleFetch();
 
 // User Interactions
 searchSubmit.addEventListener("click", getCocktailApi);
@@ -178,10 +182,10 @@ document.addEventListener("DOMContentLoaded", () => {
 const element = document.querySelector("#container");
 
 element.addEventListener('wheel', (event) => {
-  event.preventDefault();
+    event.preventDefault();
 
-  element.scrollBy({
-    left: event.deltaY < 0 ? -30 : 30,
-    
-  });
+    element.scrollBy({
+        left: event.deltaY < 0 ? -30 : 30,
+
+    });
 });
