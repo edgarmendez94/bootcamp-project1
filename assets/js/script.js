@@ -27,7 +27,7 @@ function getRandomCocktail(data) {
             var ingredientName = drink[`strIngredient${i}`];
             // console log of ingredients working
             console.log(ingredientName);
-            if (drink[`strIngredient${i}`] !== null) {
+            if (drink[`strIngredient${i}`] !== null && drink[`strIngredient${i}`] !== "") {
                 line += drink[`strIngredient${i}`];
                 var lineElement = document.createElement("li");
                 line += " " + drink[`strMeasure${i}`];
