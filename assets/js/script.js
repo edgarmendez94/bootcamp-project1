@@ -147,12 +147,12 @@ function googleFetch() {
         });
 }
 
-// googleFetch();
+googleFetch();
 
 // User Interactions
 searchSubmit.addEventListener("click", getCocktailApi);
-generateBtn.addEventListener("click", random);
-console.log(random);
+//generateBtn.addEventListener("click", random);
+//console.log(random);
 // INIT
 
 getCocktailApi();
