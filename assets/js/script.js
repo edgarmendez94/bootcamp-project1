@@ -155,7 +155,7 @@ searchSubmit.addEventListener("click", getCocktailApi);
 //console.log(random);
 // INIT
 
-getCocktailApi();
+//getCocktailApi();
 
 //Bulma Javascript for Hamburger menu
 document.addEventListener("DOMContentLoaded", () => {
@@ -176,16 +176,5 @@ document.addEventListener("DOMContentLoaded", () => {
             el.classList.toggle("is-active");
             $target.classList.toggle("is-active");
         });
-    });
-});
-
-const element = document.querySelector("#container");
-
-element.addEventListener('wheel', (event) => {
-    event.preventDefault();
-
-    element.scrollBy({
-        left: event.deltaY < 0 ? -30 : 30,
-
     });
 });
