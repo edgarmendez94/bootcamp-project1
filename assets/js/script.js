@@ -6,6 +6,37 @@ fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
 
 // Helper Functions
 function getRandomCocktail(data) {
+ 41-random-drink
+    var drinksDiv = document.getElementById("drinks-div");
+    var imageDiv = document.getElementById("image-div");
+
+    for (let drink of data.drinks) {
+        var drinkElement = document.createElement("h2");
+        var drinkImage = document.createElement("img");
+
+        drinkImage.setAttribute('src', drink.strImageSource);
+        drinkImage.src = drink.strImageSource;
+
+        drinkElement.textContent = drink.strDrink;
+        drinksDiv.appendChild(drinkElement);
+        imageDiv.appendChild(drinkImage);
+
+        var ingredientsUL = document.createElement("ul");
+        for (var i = 1; i <= 15; i++){
+            var line = "";
+            var ingredientName = drink[`strIngredient${i}`];
+            // console log of ingredients working
+            console.log(ingredientName);
+            if (drink[`strIngredient${i}`] !== null) {
+                line += drink[`strIngredient${i}`];
+                var lineElement = document.createElement("li");
+                line += " " + drink[`strMeasure${i}`];
+                lineElement.textContent = line;
+                ingredientsUL.appendChild(lineElement);
+            }
+            drinksDiv.appendChild(ingredientsUL);
+        }
+
   var drinksDiv = document.getElementById("drinks-div");
   var imageDiv = document.getElementById("image-div");
 
@@ -33,6 +64,7 @@ function getRandomCocktail(data) {
         ingredientsUL.appendChild(lineElement);
       }
       drinksDiv.appendChild(ingredientsUL);
+main
     }
   }
 }
