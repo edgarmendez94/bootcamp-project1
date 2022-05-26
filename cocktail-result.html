@@ -1,50 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
-    />
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <!-- https://fontawesome.com/ -->
-    <script
-      src="https://kit.fontawesome.com/8cd90df22b.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
 
-  <body>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-        <a class="navbar-item" href="./index.html">
-          <img src="./assets/images/icons8-cocktail-shaker-50.png" style:
-          height="100px">
-        </a>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <!-- https://fontawesome.com/ -->
+  <script src="https://kit.fontawesome.com/8cd90df22b.js" crossorigin="anonymous"></script>
+</head>
 
-        <a
-          role="button"
-          class="navbar-burger"
-          aria-label="menu"
-          aria-expanded="false"
-          data-target="navbarBasicExample"
-        >
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
-      </div>
+<body>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="./index.html">
+        <img src="./assets/images/icons8-cocktail-shaker-50.png" style: height="100px">
+      </a>
 
-      <div id="navbarBasicExample" class="navbar-menu">
-        <div class="navbar-start">
-          <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-item" id="randomCocktail" href="./main.html">
-              Random Cocktail
-            </a>
-            <a class="navbar-link"> More </a>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-item" id="randomCocktail" href="./main.html">
+            Random Cocktail
+          </a>
+          <a class="navbar-link"> More </a>
 
             <div class="navbar-dropdown">
               <a class="navbar-item" href="./main.html"> Drink of the Day </a>
@@ -56,71 +44,51 @@
             </div>
           </div>
         </div>
-
-    </nav>
-
-    <section>
-      <!-- empty div tile to offset the 2 tiles that have content -->
-      <div class="tile is-ancestor is-"></div>
-      <!-- puts drink name in its own tile and centers it -->
-      <h1 class="title is-1 is-centered has-text-weight-light has-text-warning">
-        Drink Name
-      </h1>
-      <div class="tile is-ancestor">
-        <!-- much like bootstrap, the is-4 is refference to the size of a tile / collum where it can go up to 12  -->
-        <div class="tile is-parent is-4">
-          <article class="tile is-child notification is-info">
-            <p class="title">Cocktail image or video</p>
-            <!-- placeholder image , can be sized within the class with the "is-4by3" -->
-            <figure class="image is-4by3">
-              <img src="https://bulma.io/images/placeholders/640x480.png" />
-            </figure>
-          </article>
-        </div>
-        <!-- Is vertical used to force the tile to have its content fit within a vertically alligned rectangle  -->
-        <div class="tile is-parent is-vertical is-4">
-          <article class="tile is-child notification is-success">
-            <div class="content">
-              <div class="content">
-                <p class="title">Ingridients</p>
-                <div class="content">
-                  <!-- bulma allows text to be centered without need of going into css -->
-                  <li class="has-text-centered">Ingridient 1</li>
-                  <li class="has-text-centered">Ingridient 2</li>
-                  <li class="has-text-centered">Ingridient 3</li>
-                  <li class="has-text-centered">Ingridient 4</li>
-                  <li class="has-text-centered">Ingridient 5</li>
-                  <li class="has-text-centered">Ingridient 6</li>
-                  <li class="has-text-centered">Ingridient 7</li>
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
       </div>
-    </section>
 
-    <footer class="is-ancestor">
-      <!-- for colums you can add an offset to move the colum as many spaces as you want from 1 - 12 -->
-      <div class="column is-8 is-offset-2">
-        <!-- this P allows the icon to be alligned to the left and within the search bar -->
+  </nav>
+
+  <section>
+    <div class="tile is-ancestor">
+      <div class="tile is-parent is-4">
+        <article class="tile is-child notification is-info">
+          <p class="title">Cocktail image or video</p>
+          <figure id="image-div" class="image is-4by3">
+            <!-- <img src="https://bulma.io/images/placeholders/640x480.png"> -->
+          </figure>
+        </article>
+      </div>
+      <div class="tile is-parent is-vertical is-4">
+        <article class="tile is-child notification is-success">
+          <div class="content">
+            <div id="drinks-div"></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer class="is-ancestor">
+    <!-- for colums you can add an offset to move the colum as many spaces as you want from 1 - 12 -->
+    <div class="column is-8 is-offset-2">
+      <!-- this P allows the icon to be alligned to the left and within the search bar -->
+      <form id="search-form" action="./cocktail-result.html">
         <p class="control has-icons-left">
-          <input
-            id="search"
-            class="input has-icon-left is-rounded is-focused"
-            type="text"
-            placeholder="Search for a drink here"
-          />
+          <input id="search" class="input has-icon-left is-rounded is-focused" type="text"
+            placeholder="Search for a drink here" />
           <span class="icon is-small is-left">
             <!-- calls in icon from font awsome -->
             <i class="fa-solid fa-martini-glass"></i>
           </span>
         </p>
-      </div>
-    </footer>
+        <input id="search-submit" type="submit" style="display: none">
+      </form>
+    </div>
+  </footer>
 
-    <script src="https://apis.google.com/js/api.js"></script>
-    <script src="./assets/js/results.js"></script>
-    
-  </body>
+  <script src="https://apis.google.com/js/api.js"></script>
+  <script src="./assets/js/results.js"></script>
+
+</body>
+
 </html>
