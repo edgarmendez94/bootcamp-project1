@@ -73,16 +73,36 @@
     <section class="section is-small">
       <h2 class="subtitle">Drink of the Day</h2>
     </section>
-    <section>
-      <div class="tile is-ancestor">
+    <div class="tile is-ancestor">
+        <!-- much like bootstrap, the is-4 is refference to the size of a tile / collum where it can go up to 12  -->
         <div class="tile is-parent is-4">
           <article class="tile is-child notification is-info">
-            <p class="title">Cocktail Image</p>
+            <p class="title">Cocktail image or video</p>
+            <!-- placeholder image , can be sized within the class with the "is-4by3" -->
             <figure class="image is-4by3">
               <img src="./assets/images/Aperol.jpg" />
             </figure>
           </article>
         </div>
+        <!-- Is vertical used to force the tile to have its content fit within a vertically alligned rectangle  -->
+        <div class="tile is-parent is-vertical is-4">
+          <article class="tile is-child notification is-success">
+            <div class="content">
+              <div class="content">
+                <p class="title">Ingridients</p>
+                <div class="content">
+                  <!-- bulma allows text to be centered without need of going into css -->
+                  <li class="has-text-centered">1 1/4 oz Aperol, </li>
+                  <li class="has-text-centered"> 2 oz Prosecco,</li>
+                  <li class="has-text-centered">Splash of Soda water or Sprite</li>
+                  <li class="has-text-centered">Orange Wedge for garnish</li>
+                  <li class="has-text-centered">Served with ice</li>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
 
 
