@@ -8,7 +8,9 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
     />
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="assets/mybulma/sass/mystyles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/8cd90df22b.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
@@ -54,19 +56,19 @@
     </nav>
 
     <section>
-      <div class="tile is-ancestor">
-        <div class="tile is-parent is-4">
-          <article class="tile is-child notification is-info">
-            <p class="title">Cocktail image or video</p>
+      <div class="tile is-ancestor is-justify-content-center py-6">
+        <div class="tile is-parent is-4  p-5  py-6">
+          <article class="tile is-child box">
+           
             <figure id="image-div" class="image is-4by3">
               <!-- <img src="https://bulma.io/images/placeholders/640x480.png"> -->
             </figure>
           </article>
         </div>
-        <div class="tile is-parent is-vertical is-4">
-          <article class="tile is-child notification is-success">
+        <div class="tile is-parent is-vertical is-4 p-5  py-6">
+          <article class="tile is-child box">
             <div class="content">
-              <h2>Random Cocktail</h2>
+              <h2>Your drink is...</h2>
               <div id="drinks-div"></div>
             </div>
           </article>

@@ -4,11 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Drink of the Day</title>
-    <link
+      <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
-    />
-    <link rel="stylesheet" href="assets/css/style.css" />
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"/>
+      <link rel="stylesheet" href="assets/mybulma/sass/mystyles.css">
+      <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+      <script src="https://kit.fontawesome.com/8cd90df22b.js" crossorigin="anonymous"></script>
+   
   </head>
   <body>
     <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -32,6 +34,8 @@
               <a class="navbar-item" id="randomCocktail" href="./index.html">
                 Random Cocktail
               </a>
+            </div>
+            <div>
               <a class="navbar-link">
                 More
               </a>
@@ -50,47 +54,44 @@
               </div>
             </div>
           </div>
-      
+        </div>
         </nav>
-      </div>
-    </section>
+      
+    
     <section class="section is-small">
-      <h2 class="subtitle">Drink of the Day</h2>
+      <h1 class="title is-1 is-centered has-text-weight-light has-text-warning-light">Drink of the Day</h1>
     </section>
-    <div class="tile is-ancestor">
-        <!-- much like bootstrap, the is-4 is refference to the size of a tile / collum where it can go up to 12  -->
-        <div class="tile is-parent is-4">
-          <article class="tile is-child notification is-info">
-            <p class="title">Cocktail image or video</p>
-            <!-- placeholder image , can be sized within the class with the "is-4by3" -->
-            <figure class="image is-4by3">
-              <img src="./assets/images/Aperol.jpg" alt="Aperol" />
-            </figure>
-          </article>
-        </div>
-        <!-- Is vertical used to force the tile to have its content fit within a vertically alligned rectangle  -->
-        <div class="tile is-parent is-vertical is-4">
-          <article class="tile is-child notification is-success">
-            <div class="content">
-              <div class="content">
-                <p class="title">Ingridients</p>
-                <div class="content">
-                  <!-- bulma allows text to be centered without need of going into css -->
-                  <li class="has-text-centered">1 1/4 oz Aperol, </li>
-                  <li class="has-text-centered"> 2 oz Prosecco,</li>
-                  <li class="has-text-centered">Splash of Soda water or Sprite</li>
-                  <li class="has-text-centered">Orange Wedge for garnish</li>
-                  <li class="has-text-centered">Served with ice</li>
-                </div>
-              </div>
+
+    <section>
+    <div class="columns is-mobile is-justify-content-center is-flex-shrink-1 is-align-content-space-evenly is-mobile is-flex-wrap">
+      <div class="column is-centered is-3 m-3">
+        <figure class="image  m-4 is-480x480">
+          <img  class= is-rounded  src="./assets/images/espresso.jpg" alt="Aperol drink in a glass" />
+        </figure>
+        <p class="text1  is-centered">Espresso Martini</p>
+        <p class="text p-2">The espresso martini is a cold caffeinated alcoholic drink made with espresso, coffee liqueur, and vodka. It is not a true martini as it contains neither gin nor vermouth, but is one of many drinks that incorporate the term martini into their names. </p>
+      </div>
+
+      <div class="column is-centered is-4 m-3">
+        <div class="content">
+          <div class="content">
+            <h1 class="title is-centered">Ingridients</h1>
+            <div class="content is-centered">
+              <!-- bulma allows text to be centered without need of going into css -->
+              <li class="has-text-centered">2 ounces vodka </li>
+              <li class="has-text-centered">1/2 ounce coffee liqueur </li>
+              <li class="has-text-centered">1 ounce espresso, freshly brewed (or cold brew concentrate)</li>
+              <li class="has-text-centered">1/2 ounce simple syrup</li>
+              <li class="has-text-centered">Garnish: coffee beans</li>
             </div>
-          </article>
+          </div>
         </div>
+          
       </div>
     </section>
 
 
-    <footer class="is-ancestor">
+    <footer class="is-ancestor p-5">
         <!-- for colums you can add an offset to move the colum as many spaces as you want from 1 - 12 -->
         <div class="column is-8 is-offset-2">
           <!-- this P allows the icon to be alligned to the left and within the search bar -->
