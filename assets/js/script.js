@@ -6,11 +6,46 @@ var drinksDiv = document.getElementById("drinks-div");
 var imageDiv = document.getElementById("image-div");
 
 fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
-    .then((response) => response.json())
-    .then((data) => getRandomCocktail(data));
+  .then((response) => response.json())
+  .then((data) => getRandomCocktail(data));
+
+var granimInstance = new Granim({
+  element: "#canvas-basic",
+  direction: "left-right",
+  isPausedWhenNotInView: true,
+  states: {
+    "default-state": {
+      gradients: [
+        ["#ff9966", "#ff5e62"],
+        ["#00F260", "#0575E6"],
+        ["#e1eec3", "#f05053"],
+      ],
+    },
+  },
+});
 
 // Helper Functions
 function getRandomCocktail(data) {
+<<<<<<< HEAD
+  var drinksDiv = document.getElementById("drinks-div");
+  var imageDiv = document.getElementById("image-div");
+
+  for (let drink of data.drinks) {
+    var drinkElement = document.createElement("h3");
+
+    if (drink.strImageSource !== null) {
+      var drinkImage = document.createElement("img");
+      drinkImage.setAttribute("src", drink.strImageSource);
+      drinkImage.src = drink.strImageSource;
+      imageDiv.appendChild(drinkImage);
+    } else {
+      var placeholderDrink = document.createElement("img");
+      placeholderDrink.setAttribute(
+        "src",
+        "assets/images/bartender-placeholder.jpeg"
+      );
+      imageDiv.appendChild(placeholderDrink);
+=======
 
 
     for (let drink of data.drinks) {
@@ -45,8 +80,32 @@ function getRandomCocktail(data) {
             }
             drinksDiv.appendChild(ingredientsUL);
         }
+>>>>>>> 054c663e91135c9eb16443fb67aadfb4044a7dc8
     }
-};
+
+    drinkElement.textContent = drink.strDrink;
+    drinksDiv.appendChild(drinkElement);
+
+    var ingredientsUL = document.createElement("ul");
+    for (var i = 1; i <= 15; i++) {
+      var line = "";
+      var ingredientName = drink[`strIngredient${i}`];
+      // console log of ingredients working
+      console.log(ingredientName);
+      if (
+        drink[`strIngredient${i}`] !== null &&
+        drink[`strIngredient${i}`] !== ""
+      ) {
+        line += drink[`strIngredient${i}`];
+        var lineElement = document.createElement("li");
+        line += " " + drink[`strMeasure${i}`];
+        lineElement.textContent = line;
+        ingredientsUL.appendChild(lineElement);
+      }
+      drinksDiv.appendChild(ingredientsUL);
+    }
+  }
+}
 
 // function logKey(e) {
 //     console.log(e);
@@ -58,16 +117,32 @@ function getRandomCocktail(data) {
 
 // }
 
+<<<<<<< HEAD
+function getCocktailApi() {
+  console.log(inputField.value);
+
+  var cocktailSearch =
+    "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" +
+    inputField.value;
+=======
 function getCocktailApi(e) {
     e.preventDefault();
     console.log(inputField.value);
+>>>>>>> 054c663e91135c9eb16443fb67aadfb4044a7dc8
 
-    var cocktailSearch = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + inputField.value;
-
-    fetch(cocktailSearch, {
-        // mode cors allows cross origin requests
-        mode: "cors",
+  fetch(cocktailSearch, {
+    // mode cors allows cross origin requests
+    mode: "cors",
+  })
+    .then(function (response) {
+      console.log(response);
+      return response.json();
     })
+<<<<<<< HEAD
+    .then(function (data) {
+      console.log(data);
+    });
+=======
         .then(function (response) {
             console.log(response);
             return response.json();
@@ -80,6 +155,7 @@ function getCocktailApi(e) {
             localStorage.setItem('cocktailData', JSON.stringify(cocktailData));
         });
 
+>>>>>>> 054c663e91135c9eb16443fb67aadfb4044a7dc8
 }
 
 // function authenticate() {
@@ -134,6 +210,20 @@ function getCocktailApi(e) {
 // });
 
 function googleFetch() {
+<<<<<<< HEAD
+  var googleVid =
+    "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=" +
+    inputField.value +
+    "&type=video&key=AIzaSyCdDdBtp_6yVMIy_8Wx1XJHcQ4FZRPJ3rs";
+  fetch(googleVid)
+    .then(function (response) {
+      console.log(response.status);
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+    });
+=======
     var googleVid = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=" + inputField.value + "&type=video&key=AIzaSyCTGqFnZNElv_dPPcCH13dgc-tQAnu7kE0"
     fetch(googleVid)
         .then(
@@ -147,6 +237,7 @@ function googleFetch() {
 
             console.log(data);
         });
+>>>>>>> 054c663e91135c9eb16443fb67aadfb4044a7dc8
 }
 
 // googleFetch();
@@ -164,23 +255,22 @@ searchForm.addEventListener("submit", (e) => {
 
 //Bulma Javascript for Hamburger menu
 document.addEventListener("DOMContentLoaded", () => {
-    // Get all "navbar-burger" elements
-    const $navbarBurgers = Array.prototype.slice.call(
-        document.querySelectorAll(".navbar-burger"),
-        0
-    );
+  // Get all "navbar-burger" elements
+  const $navbarBurgers = Array.prototype.slice.call(
+    document.querySelectorAll(".navbar-burger"),
+    0
+  );
 
-    // Add a click event on each of them
-    $navbarBurgers.forEach((el) => {
-        el.addEventListener("click", () => {
-            // Get the target from the "data-target" attribute
-            const target = el.dataset.target;
-            const $target = document.getElementById(target);
+  // Add a click event on each of them
+  $navbarBurgers.forEach((el) => {
+    el.addEventListener("click", () => {
+      // Get the target from the "data-target" attribute
+      const target = el.dataset.target;
+      const $target = document.getElementById(target);
 
-            // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-            el.classList.toggle("is-active");
-            $target.classList.toggle("is-active");
-        });
+      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+      el.classList.toggle("is-active");
+      $target.classList.toggle("is-active");
     });
+  });
 });
-
