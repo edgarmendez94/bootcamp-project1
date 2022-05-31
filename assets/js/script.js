@@ -1,6 +1,9 @@
 //Dependencies
+var searchForm = document.getElementById('search-form');
 var inputField = document.getElementById("search");
 var searchSubmit = document.getElementById("search-submit");
+var drinksDiv = document.getElementById("drinks-div");
+var imageDiv = document.getElementById("image-div");
 
 fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
   .then((response) => response.json())
@@ -23,6 +26,7 @@ var granimInstance = new Granim({
 
 // Helper Functions
 function getRandomCocktail(data) {
+<<<<<<< HEAD
   var drinksDiv = document.getElementById("drinks-div");
   var imageDiv = document.getElementById("image-div");
 
@@ -41,6 +45,42 @@ function getRandomCocktail(data) {
         "assets/images/bartender-placeholder.jpeg"
       );
       imageDiv.appendChild(placeholderDrink);
+=======
+
+
+    for (let drink of data.drinks) {
+        var drinkElement = document.createElement("h3");
+
+        if (drink.strImageSource !== null) {
+            var drinkImage = document.createElement("img");
+            drinkImage.setAttribute('src', drink.strImageSource);
+            drinkImage.src = drink.strImageSource;
+            imageDiv.appendChild(drinkImage);
+        } else {
+            var placeholderDrink = document.createElement("img");
+            placeholderDrink.setAttribute('src', 'assets/images/bartender-placeholder.jpeg');
+            imageDiv.appendChild(placeholderDrink);
+        }
+
+        drinkElement.textContent = drink.strDrink;
+        drinksDiv.appendChild(drinkElement);
+
+        var ingredientsUL = document.createElement("ul");
+        for (var i = 1; i <= 15; i++) {
+            var line = "";
+            var ingredientName = drink[`strIngredient${i}`];
+            // console log of ingredients working
+            console.log(ingredientName);
+            if (drink[`strIngredient${i}`] !== null && drink[`strIngredient${i}`] !== "") {
+                line += drink[`strIngredient${i}`];
+                var lineElement = document.createElement("li");
+                line += " " + drink[`strMeasure${i}`];
+                lineElement.textContent = line;
+                ingredientsUL.appendChild(lineElement);
+            }
+            drinksDiv.appendChild(ingredientsUL);
+        }
+>>>>>>> 054c663e91135c9eb16443fb67aadfb4044a7dc8
     }
 
     drinkElement.textContent = drink.strDrink;
@@ -77,12 +117,18 @@ function getRandomCocktail(data) {
 
 // }
 
+<<<<<<< HEAD
 function getCocktailApi() {
   console.log(inputField.value);
 
   var cocktailSearch =
     "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" +
     inputField.value;
+=======
+function getCocktailApi(e) {
+    e.preventDefault();
+    console.log(inputField.value);
+>>>>>>> 054c663e91135c9eb16443fb67aadfb4044a7dc8
 
   fetch(cocktailSearch, {
     // mode cors allows cross origin requests
@@ -92,9 +138,24 @@ function getCocktailApi() {
       console.log(response);
       return response.json();
     })
+<<<<<<< HEAD
     .then(function (data) {
       console.log(data);
     });
+=======
+        .then(function (response) {
+            console.log(response);
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+            // JSON.stringify(data) because local storage only handles strings
+            var cocktailData = JSON.stringify(data);
+            // localStorage.setItem('cocktailData', stringifiedData);
+            localStorage.setItem('cocktailData', JSON.stringify(cocktailData));
+        });
+
+>>>>>>> 054c663e91135c9eb16443fb67aadfb4044a7dc8
 }
 
 // function authenticate() {
@@ -149,6 +210,7 @@ function getCocktailApi() {
 // });
 
 function googleFetch() {
+<<<<<<< HEAD
   var googleVid =
     "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=" +
     inputField.value +
@@ -161,17 +223,35 @@ function googleFetch() {
     .then(function (data) {
       console.log(data);
     });
+=======
+    var googleVid = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=" + inputField.value + "&type=video&key=AIzaSyCTGqFnZNElv_dPPcCH13dgc-tQAnu7kE0"
+    fetch(googleVid)
+        .then(
+            function (response) {
+                console.log(response.status)
+                return response.json();
+            }
+
+        )
+        .then(function (data) {
+
+            console.log(data);
+        });
+>>>>>>> 054c663e91135c9eb16443fb67aadfb4044a7dc8
 }
 
 // googleFetch();
 
 // User Interactions
-searchSubmit.addEventListener("click", getCocktailApi);
-generateBtn.addEventListener("click", random);
-console.log(random);
+searchForm.addEventListener("submit", (e) => {
+    // e.preventDefault();
+    // getCocktailApi();
+});
+//generateBtn.addEventListener("click", random);
+//console.log(random);
 // INIT
 
-getCocktailApi();
+//getCocktailApi();
 
 //Bulma Javascript for Hamburger menu
 document.addEventListener("DOMContentLoaded", () => {
